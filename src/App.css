@@ -7,8 +7,8 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 20px;
-  background-image: url(/public/images/board-layer-white-small.svg),
-    url(/public/images/board-layer-black-small.svg);
+  background-image: url(./assets/images/board-layer-white-small.svg),
+    url(./assets/images/board-layer-black-small.svg);
   background-size: cover;
 }
 
