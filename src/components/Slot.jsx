@@ -6,6 +6,7 @@ const Slot = ({ ch, y, x }) => {
     <div className="slot" x={x} y={y}>
       {ch && (
         <img
+          alt="token"
           src={ch === "X" ? redToken : yellowToken}
           width="100%"
           height="100%"

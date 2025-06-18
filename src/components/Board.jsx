@@ -23,7 +23,9 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
+    } catch (e) {
+      console.log(e);
+    }
     try {
       if (board[row + 1][column + 1] === ch) {
         if (board[row + 2][column + 2] === ch) {
@@ -32,7 +34,9 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
+    } catch (e) {
+      console.log(e);
+    }
     try {
       if (board[row + 1][column - 1] === ch) {
         if (board[row + 2][column - 2] === ch) {
@@ -41,7 +45,9 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
+    } catch (e) {
+      console.log(e);
+    }
     try {
       if (board[row][column + 1] === ch) {
         if (board[row][column + 2] === ch) {
@@ -50,7 +56,9 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
+    } catch (e) {
+      console.log(e);
+    }
     try {
       if (board[row][column - 1] === ch) {
         if (board[row][column - 2] === ch) {
@@ -59,7 +67,9 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
+    } catch (e) {
+      console.log(e);
+    }
     try {
       if (board[row - 1][column + 1] === ch) {
         if (board[row - 2][column + 2] === ch) {
@@ -68,7 +78,9 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
+    } catch (e) {
+      console.log(e);
+    }
     try {
       if (board[row - 1][column - 1] === ch) {
         if (board[row - 2][column - 2] === ch) {
@@ -77,35 +89,36 @@ const Board = () => {
           }
         }
       }
-    } catch (e) {console.log(e)}
-  } 
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const updateBoard = (row, column, ch) => {
-    setBoard(prev => {
+    setBoard((prev) => {
       const boardCopy = [...prev];
       boardCopy[row][column] = ch;
-      return boardCopy
+      return boardCopy;
     });
 
-    return checkWin(row, column, ch)
-  }
+    return checkWin(row, column, ch);
+  };
 
   const handleClick = (e) => {
     const column = e.target.getAttribute("X");
 
     let row = board.findIndex((rowArr, index) => {
-      return rowArr[column] != "" || index === board.length - 1;
+      return rowArr[column] !== "" || index === board.length - 1;
     });
     if (row !== board.length - 1) row -= 1;
     if (board[row][column] !== "") row -= 1;
 
+    setGameOver(updateBoard(row, column, currPlayer));
 
-    setGameOver(updateBoard(row, column, currPlayer))
-
-    if(!gameOver) {
+    if (!gameOver) {
       const currPlayerCopy = currPlayer;
       setCurrPlayer(oppPlayer);
-      setOppPlayer(currPlayerCopy)
+      setOppPlayer(currPlayerCopy);
     }
   };
 
